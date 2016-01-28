@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>My todolist</title>
+        <style>
+            a {text-decoration: none; color: red;}
+            ul {list-style-type: none;}
+            h1, p {text-align: center;}
+        </style>
+    </head>
+
+    <body>
+        <h1><%= todolist.length %> tasks </h1>
+        <form action="/todo/add/" method="post">
+            <p>
+                <label for="newtodo">New tasks ?</label>
+                <input type="text" name="newtodo" id="newtodo" autofocus />
+                <input type="submit" />
+            </p>
+        </form>
+        <ul>
+        <% todolist.forEach(function(todo, index) { %>
+            <li><a href="/todo/delete/<%= index %>">✘</a> <%= todo %></li>
+        <% }); %>
+        </ul>
+    </body>
+</html>
